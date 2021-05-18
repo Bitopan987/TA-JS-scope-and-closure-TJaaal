@@ -4,7 +4,7 @@
 
 2. Where the JavaScript code gets executed?
 
-- The JavaScript code gets executed in global execution context.
+- The JavaScript code gets executed in javascript engine.
 
 3. What does context means in Global Execution Context?
 
@@ -12,7 +12,7 @@
 
 4. When do you create a global execution context.
 
-- whenever we executes any code snippetes.
+- whenever we executes any code snippetes for the first time.
 
 5. Execution context consists of what all things?
 
