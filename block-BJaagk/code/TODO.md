@@ -6,6 +6,7 @@ function percentage(marks, total) {
 }
 
 // function expression
+
 let getPercent = function percentage(marks, total) {
   return (marks * 100) / total;
 };
@@ -62,29 +63,41 @@ let percentage = (marks, total) => (marks * 100) / total;
 
 3. Why is a function definition an expression in JavaScript? Give one example of function expression.
 
-- The funtion is an object in javascript and we can store any object inside variable. that is why a function definition an expression in JavaScript.
-  example -
+- Because expression is something that results into a value. values can be numbers,boolean,string null undefined objects. we khnow that function is an object and object is an value that is why function definition an expression in JavaScript.
+
+  ex -
 
 ```js
-let addNumbers = function add(a, b) {
-  console.log(a + b);
-};
+let obj = {};
+let add = function () {};
 ```
 
 4. Why is a function call an expression in JavaScript?
 
-- Function call always gives us a value .
+- A function always returns a value. however if we have no return statement it will return undefined which is also a value.
+
+```js
+function add(a, b) {
+  return a + b;
+}
+
+function addAgain(a, b) {}
+
+// When we call them
+add(3, 8); // 11
+addAgain(); // undefined
+```
 
 5. Write VALID and INVALID next to each example below with the reason.
 
 ```js
 function add(a, b) {
   return a + b;
-} // valid
+}
 
-let five = add(2, 3); // invalid
-five = add; // invalid
-five = five(10, 11); // invalid
+let five = add(2, 3); // valid 5
+five = add; // valid here we are assigning a funtion defination
+five = five(10, 11); // valid 21
 five = function () {
   return "Hello";
 }; // valid
@@ -111,7 +124,8 @@ add(5, 6);
 
 7. What is the similarities between function definition and function call?
 
-- Both of them should have its name and paranthesis brackets.
+- Function defination is an expression (function is an object)
+- Function call is an expression (function call always returns a value)
 
 8. Is the code below valid or invalid. Explain with reason.
 
@@ -138,11 +152,20 @@ function filterOdd(arr, fn) {
   return arr;
 }
 
-function filterEven(arr) {
-  return function () {};
+filterOdd([1, 2, 3, 5, 67], isOdd);
+
+// Return a function defination
+
+function multiplyBy(num) {
+  return function (num2) {
+    return num * num2;
+  };
 }
 
-filterOdd([1, 2, 3, 5, 67], isOdd);
+let multiplyBy10 = multiplyBy(10);
+console.log(multiplyBy10(12));
 ```
 
 10. Explain what is callback function. Why you can pass a function inside a function?
+
+- A callback is a function passed as an argument to another function.We can pass a function inside a function because function is an expression.
