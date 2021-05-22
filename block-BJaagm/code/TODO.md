@@ -16,7 +16,7 @@
 
 5. Execution context consists of what all things?
 
-- memory section for storing all the data and another section where all the execution happens.
+- memory section for storing all the data and another section where all the execution happens(manipulation, execution).
 
 6. What are the different types of execution context?
 
@@ -44,7 +44,7 @@ var userMsg = sayHello(user);
 
 <!-- Put your image here -->
 
-![](./img/image-name.jpg)
+![](../image/p2.jpeg)
 
 ```js
 var marks = 400;
@@ -60,7 +60,7 @@ var percentageProfit = getPercentage(400, 200);
 
 <!-- Put your image here -->
 
-![](./img/image-name.jpg)
+![](../image/p2.jpeg)
 
 ```js
 var age = 21;
@@ -79,4 +79,4 @@ var whoAmIAgain = customeMessage(12);
 
 <!-- Put your image here -->
 
-![](./img/image-name.jpg)
+![](../image/p1.jpeg)
