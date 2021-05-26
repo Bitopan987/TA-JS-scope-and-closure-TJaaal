@@ -15,6 +15,10 @@ let hundred = square(10);
 console.log(hundred);
 ```
 
+<!-- image -->
+
+![](./image/f1.jpeg);
+
 Create the execution context diagram of the following code line by line.
 
 ```js
@@ -26,6 +30,10 @@ var five = addFive(0);
 var ten = addFive(5);
 console.log(five, ten);
 ```
+
+<!-- image -->
+
+![](./image/f2.jpeg);
 
 Create the execution context diagram of the following code line by line.
 
@@ -42,77 +50,9 @@ function multiplyArrayByN(arr, n) {
 let numbers = multiplyArrayByN(marks);
 ```
 
-Create the execution context diagram of the following code line by line.
+<!-- image -->
 
-```js
-counter();
-function counter(){
-  let count = 0;
-  funciton increment(){
-    return count++;
-  }
-  return increment()
-}
-```
-
-Create the execution context diagram of the following code line by line.
-
-```js
-counter();
-let counter = function () {
-  let count = 0;
-  function increment() {
-    return count++;
-  }
-  return increment();
-};
-```
-
-<!-- Copy -->
-
-To create the execution context diagram consider the following:
-
-- Global and Function Execution Context
-- Different Phases Of Execution Context
-- Var let and const
-
-Create the execution context diagram of the following code line by line.
-
-```js
-let num = 21;
-function square(num) {
-  return num * num;
-}
-let hundred = square(10);
-console.log(hundred);
-```
-
-Create the execution context diagram of the following code line by line.
-
-```js
-var num = 21;
-function addFive(n) {
-  return n + 5;
-}
-var five = addFive(0);
-var ten = addFive(5);
-console.log(five, ten);
-```
-
-Create the execution context diagram of the following code line by line.
-
-```js
-let marks = [34, 45, 56, 76];
-function multiplyArrayByN(arr, n) {
-  let finalArr = [];
-  for (let elm of arr) {
-    finalArr.push(elm * 2);
-  }
-  return finalArr;
-}
-
-let numbers = multiplyArrayByN(marks);
-```
+![](./image/f3.jpeg);
 
 Create the execution context diagram of the following code line by line.
 
@@ -127,6 +67,10 @@ function counter(){
 }
 ```
 
+<!-- image -->
+
+![](./image/f4.jpeg);
+
 Create the execution context diagram of the following code line by line.
 
 ```js
@@ -139,3 +83,7 @@ let counter = function () {
   return increment();
 };
 ```
+
+<!-- image -->
+
+![](./image/f5.jpeg);
