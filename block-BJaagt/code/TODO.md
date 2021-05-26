@@ -19,10 +19,10 @@ The above code will throw an error `Reference Error username is not defined`.
 {
   const username = "Arya";
 }
-console.log(useranme); // output
+console.log(useranme); // ReferenceError: useranme is not defined
 ```
 
-In above code we are looking for the variable named `usename`. There is no variable named `username` in the global scope. The variable is inside block scope and we can't access the variable defined inside a block from outside.
+In above code we are looking for the variable named `usename`. The variable is inside block scope using const and we can't access the variable defined inside a block from outside.
 
 3. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
 
@@ -30,10 +30,10 @@ In above code we are looking for the variable named `usename`. There is no varia
 if (true) {
   let username = "Arya";
 }
-console.log(useranme); // output
+console.log(useranme); // ReferenceError: username is not defined
 ```
 
-4. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
+here let creates scope inside the if block. 4. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
 
 ```js
 if (true) {
@@ -42,7 +42,7 @@ if (true) {
 console.log(username); // "Arya"
 ```
 
-In above code we are looking for the variable named `username`. When the if condition becomes true. we can't access the variable defined inside it from outside.
+here var does not creates scope inside the if block.we can excess username.
 
 5. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
 
@@ -66,6 +66,8 @@ if (true) {
 console.log(useranme); // "John"
 ```
 
+username john is in global scope.
+
 7. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
 
 ```js
@@ -77,6 +79,8 @@ sayHello();
 console.log(useranme); // "John"
 ```
 
+username would be John because the function execution will create and get delete and it will not do anything.
+
 8. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
 
 ```js
@@ -86,6 +90,8 @@ for (var i = 0; i < 10; i++) {
 console.log(i, "Second"); // 10 "Second"
 ```
 
+Here using var, var does not create any scope inside block. in lin no 89 the bvalue of i will be the last value.
+
 9. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
 
 ```js
@@ -94,3 +100,5 @@ for (let i = 0; i < 10; i++) {
 }
 console.log(i, "Second"); // ReferenceError: i is not defined
 ```
+
+here the variable i only be accessible inside the loop. in line no 100 it will throw an error as i is not defined .
