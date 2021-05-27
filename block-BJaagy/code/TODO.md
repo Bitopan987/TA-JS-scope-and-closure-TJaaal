@@ -1,6 +1,38 @@
 1. Create a function by your choice that accepts a callback function.
 
+```js
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 90, 34, 45];
+
+function filter(arr, cb) {
+  //Higher Order Function
+  let finalArr = [];
+  for (let num of arr) {
+    if (cb(num)) {
+      finalArr.push(num);
+    }
+  }
+}
+
+let isAdd = function (num) {
+  // Callback Function
+  return num % 2 == 0;
+};
+
+let final = filter(numbers, isAdd);
+```
+
 2. Create a function by you choice that returns a function reference.
+
+```js
+function multiplyBy(num) {
+  return function (num2) {
+    return num * num2;
+  };
+}
+
+let multiplyBy10 = multiplyBy(10);
+console.log(multiplyBy10(20));
+```
 
 3. Create a higher order function called `map` that takes two inputs:
    - An array of numbers/string/boolean etc
@@ -9,7 +41,14 @@
 Have `map` return a new array filled with values that are the result of the 'callback' function on each element of the input array.
 
 ```js
-// Your code goes here
+function map(arr, cb) {
+  let finalArr = [];
+  for (let elm of arr) {
+    if (cb(elm)) {
+      finalArr.push(elm);
+    }
+  }
+}
 
 // Test Your Code
 function multiplyByTwo(n) {
@@ -26,8 +65,8 @@ multiplyByTwo(2); //-> 4
 // Your code goes here
 
 // Test Your Code
-let alphabet = '';
-let letters = ['a', 'b', 'c', 'd'];
+let alphabet = "";
+let letters = ["a", "b", "c", "d"];
 forEach(letters, function (char) {
   alphabet += char;
 });
