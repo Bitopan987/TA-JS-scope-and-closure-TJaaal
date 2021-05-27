@@ -1,9 +1,9 @@
-
 1. Which all function is Higher order function and which one is a callback function in the code given below.
 
 ```js
 let marks = [34, 45, 56, 76];
 function multiplyArrayByN(arr, cb) {
+  // Higher Order Function
   let finalArr = [];
   for (let elm of arr) {
     finalArr.push(cb(elm));
@@ -11,9 +11,11 @@ function multiplyArrayByN(arr, cb) {
   return finalArr;
 }
 function addFive(n) {
+  // Callback Function
   return n + 5;
 }
 function multiplyBy5(n) {
+  // Callback Function
   return n * 5;
 }
 let numbersAddedFive = multiplyArrayByN(marks, addFive);
@@ -21,6 +23,8 @@ let numbersMultipliedBy5 = multiplyArrayByN(marks, multiplyBy5);
 ```
 
 2. Create the execution context diagram of the above code snippet
+
+![](./image/img1.jpeg)
 
 3. Write a higher order function that accepts a number and a operation function (callback function). Call the callback function passing the number as argument and return the returned value.
 
