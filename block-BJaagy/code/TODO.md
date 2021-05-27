@@ -6,11 +6,10 @@ let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 90, 34, 45];
 function filter(arr, cb) {
   //Higher Order Function
   let finalArr = [];
-  for (let num of arr) {
-    if (cb(num)) {
-      finalArr.push(num);
-    }
+  for (let elm of arr) {
+    finalArr.push(cb(elm));
   }
+  return finalArr;
 }
 
 let isAdd = function (num) {
@@ -19,6 +18,16 @@ let isAdd = function (num) {
 };
 
 let final = filter(numbers, isAdd);
+
+//2
+
+function outer(cb) {
+  return cb(23);
+}
+
+outer(function inner(num) {
+  return num + 1;
+});
 ```
 
 2. Create a function by you choice that returns a function reference.
@@ -32,6 +41,17 @@ function multiplyBy(num) {
 
 let multiplyBy10 = multiplyBy(10);
 console.log(multiplyBy10(20));
+
+//2
+
+function outer() {
+  function inner(num) {
+    return num + 1;
+  }
+  return inner;
+}
+
+outer();
 ```
 
 3. Create a higher order function called `map` that takes two inputs:
@@ -44,10 +64,9 @@ Have `map` return a new array filled with values that are the result of the 'cal
 function map(arr, cb) {
   let finalArr = [];
   for (let elm of arr) {
-    if (cb(elm)) {
-      finalArr.push(elm);
-    }
+    finalArr.push(cb(elm));
   }
+  return finalArr;
 }
 
 // Test Your Code
@@ -62,7 +81,11 @@ multiplyByTwo(2); //-> 4
 4. Create a higher-order function called `forEach` taht takes an array and a callback, and runs the callback on each element of the array. `forEach` does not return anything.
 
 ```js
-// Your code goes here
+function forEach(arr, cb) {
+  for (let elm of arr) {
+    cb(elm);
+  }
+}
 
 // Test Your Code
 let alphabet = "";
@@ -76,6 +99,15 @@ console.log(alphabet); //prints 'abcd'
 5. Create higher-order function called `filter` takes an array and a callback, and runs the callback on each element of the array if the return value of callback is `truthy` store in new array return the new array.
 
 ```js
+function filter(arr, cb) {
+  let finalArr = [];
+  for (let elm of arr) {
+    if (cb(elm)) {
+      finalArr.push(elm);
+    }
+  }
+  return finalArr;
+}
 // Test Your Code
 
 var numbers = [1, 3, 5, 4, 7, 89, 234, 20];
