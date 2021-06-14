@@ -76,11 +76,14 @@ storyOfMyLife.addWords("I ate some ice cream."); //'My code broke. I ate some ic
 When `forEach` function is called it returns another function. When the returned function is called it returns the element from the array at specific index. Every time you call the returned function the value of index should increment.
 
 ```js
-function forEach() {
-  // Your code goes here
+function forEach(arr) {
+  let index = 0;
+  return function () {
+    return arr[index++];
+  };
 }
 
-let next = [1, 2, 3, 4, 5];
+let next = forEach([6, 4, 2, 4, 5]);
 next(); // 1
 next(); // 2
 next(); // 3
@@ -94,12 +97,13 @@ The returned function accepts a string `prefix` and returns `prefix` and `title`
 
 ```js
 function addDesignation(title) {
-  // your code goes here
+  return function (prefix) {
+    return `${prefix} ${title}`;
+  };
 }
 
 let sales = addDesignation("Salesman");
 sales("Main"); // Main Salesman
-
 let manager = addDesignation("Manager");
 manager("Regional"); // Regional Manager
 manager("Head"); // Head Manager
@@ -112,8 +116,18 @@ manager("Head"); // Head Manager
 - `current` will return the current salary returns the updated salary
 
 ```js
-function changeSalary() {
-  // Your code goes here
+function changeSalary(num) {
+  return {
+    raise: function () {
+      return num + 500;
+    },
+    lower: function () {
+      return num - 500;
+    },
+    current: function () {
+      return num;
+    },
+  };
 }
 
 let sam = changeSalary(2000);
@@ -130,7 +144,21 @@ arya.lower(); // 3500
 - `setLastName`: accepts a parameter last name using which updates the firstName and return the updated full name
 
 ```js
-// Your code goes here
+function nameFactory(firstName, lastName) {
+  return {
+    getFullName() {
+      return `${firstName} ${lastName}`;
+    },
+    setFirstName(fn) {
+      firstName = fn;
+      return `${firstName} ${lastName}`;
+    },
+    setLastName(ln) {
+      lastName = ln;
+      return `${firstName} ${lastName}`;
+    },
+  };
+}
 
 let arya = nameFactory("Arya", "Stark");
 arya.getFullName(); // "Arya Stark"
@@ -143,8 +171,12 @@ arya.setLastName("Lannister"); // "Jon Lannister"
 The returned function accepts a string (children) and returns the children with the tag you passed.
 
 ```js
-function createTag() {
-  // your code goes here
+function createTag(tag) {
+  return function (child) {
+    let elm = document.createElement(tag);
+    elm.innerText = child;
+    return elm;
+  };
 }
 
 let bold = createTag("b");
