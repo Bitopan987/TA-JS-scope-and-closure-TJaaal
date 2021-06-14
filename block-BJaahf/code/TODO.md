@@ -10,9 +10,7 @@
 **You can use normal for loop for this function**
 
 ```js
-function loop() {
-  // Your code goes here
-}
+function loop() {}
 
 loop(
   3,
@@ -47,22 +45,21 @@ function intersection(arrays) {}
 
 // Test
 console.log(
-  intersection(
-    [5, 10, 15, 20],
-    [15, 88, 1, 5, 7],
-    [1, 10, 15, 5, 20]
-  )
+  intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20])
 ); // should log: [5, 15]
 ```
 
 4. Construct a function `union` that compares input arrays and returns a new array that contains all elements. If there are duplicate elements, only add it once to the new array. Preserve the order of the elements starting from the first element of the first input array.
 
 ```js
-function union(arrays) {}
+function union(arrays) {
+  return function () {
+    for (let arr of arrays) {
+      return arr;
+    }
+  };
+}
 
-// Test
-console.log(
-  union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5])
-);
+console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
 // should log: [5, 10, 15, 88, 1, 7, 100]
 ```
