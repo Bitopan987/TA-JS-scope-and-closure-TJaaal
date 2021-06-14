@@ -3,8 +3,10 @@
 1. Write a function, `outer` that takes an input `string`. Inside the function `outer` define another function expression named `sayHello` which alerts the `input`. `sayHello` should be call immediately after it is defined.
 
 ```js
-function outer(string) {
-  let sayHello = () => alert(string);
+function outer(str) {
+  let sayHello = function () {
+    return alert(str);
+  };
   sayHello();
 }
 ```
@@ -12,19 +14,19 @@ function outer(string) {
 2. Write a function `delay` that accepts two arguments, a callback and the wait for the time in milliseconds (1000 ms is 1 second). `delay` should return a function that, when invoked waits for the specified amount of time before executing. (Use setTimeout)
 
 ```js
-function delay(time, cb) {
-  let sayHello = () => alert(string);
-  sayHello();
+function delay(cb, ms) {
+  return function () {
+    setTimeout(cb, ms);
+  };
 }
 ```
 
 3. Write a function with a closure. The first function should only take one argument, someone's last name, and return the inner function. The returned `inner` function should take one more argument, someone's first name. When inner function when called it should console.log both the first name and the last name with a space.
 
 ```js
-function lastName(last) {
-  let one = last;
-  function inner(first) {
-    console.log(first + " " + one);
+function lastName(ln) {
+  function inner(fn) {
+    console.log(fn + " " + ln);
   }
   return inner;
 }
@@ -44,7 +46,17 @@ lastNameLee("Lynne"); //logs 'Lynne Lee'
 
 ```js
 function storyWriter() {
-  // Your code goes here
+  let story = " ";
+  return {
+    addWords: function (word) {
+      story += word;
+      return story;
+    },
+    erase: function () {
+      story = " ";
+      return story;
+    },
+  };
 }
 
 // Test
@@ -56,7 +68,7 @@ farmLoveStory.erase(); //''
 let storyOfMyLife = storyWriter();
 storyOfMyLife.addWords("My code broke."); // 'My code broke.'
 storyOfMyLife.addWords("I ate some ice cream."); //'My code broke. I ate some ice cream.'
-storyOfMyLife.erase(); // ''
+// ''
 ```
 
 5. Create a function named `forEach` which accepts one parameter an array. Inside the function `forEach` there a variable named `index` which is initialized to `0`.
