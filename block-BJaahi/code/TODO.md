@@ -110,7 +110,7 @@ var nextMessage = undefined;
 console.log(username, numbers);
 username = "Arya";
 number = 21;
-let sayHello = function (name) {
+sayHello = function (name) {
   return `Hello ${name}`;
 };
 
@@ -153,7 +153,7 @@ console.log(username, numbers);
 number = 21;
 message = sayHello(username);
 
-let sayHello = function (name) {
+sayHello = function (name) {
   return `Hello ${name}`;
 };
 
@@ -188,10 +188,12 @@ age = 21;
 
 ```js
 function sayHi(name) {
+  var name = undefined;
+  let age;
   console.log(name);
   console.log(age);
-  var name = "Lydia";
-  let age = 21;
+  name = "Lydia";
+  age = 21;
 }
 
 sayHi();
@@ -203,13 +205,14 @@ sayHi();
 // Declaration Phase
 
 function sayHi(name) {
+  var name = undefined;
+  let age;
   console.log(name);
   console.log(age);
-  var name = "Lydia";
-  let age = 21;
+  name = "Lydia";
+  age = 21;
 }
 
-// Execution Phase
 sayHi();
 ```
 
@@ -231,10 +234,12 @@ function sayHi(name) {
 // Declaration Phase
 
 function sayHi(name) {
+  var name = undefined;
+  let age;
   console.log(name);
   console.log(age);
-  var name = "Lydia";
-  let age = 21;
+  name = "Lydia";
+  age = 21;
 }
 
 // Execution Phase
@@ -269,7 +274,7 @@ sayHi = function sayHi(name) {
   console.log(age);
   var name = "Lydia";
   let age = 21;
-};
+}; // Throw an Error
 ```
 
 9.
@@ -411,11 +416,11 @@ function test(a) {
   return add(a, num1);
 }
 
-let sum;
-
 function add(a, b) {
   return a + b;
 }
+
+let sum;
 
 //Execution Phase
 
